@@ -43,9 +43,10 @@ export function TransactionTable() {
             return (
               <tr key={transaction.id}>
                 <td>{transaction.title}</td>
-                <td className={transaction.type}>{transaction.amount}</td>
+                {/* For BR curency the conf is:  {new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(transaction.amount)} */}
+                <td className={transaction.type}>{new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(transaction.amount)}</td>
                 <td>{transaction.category}</td>
-                <td>{transaction.createdAt}</td>
+                <td>{new Intl.DateTimeFormat("en-US").format(new Date(transaction.createdAt))}</td>
               </tr>
             );
           })}
