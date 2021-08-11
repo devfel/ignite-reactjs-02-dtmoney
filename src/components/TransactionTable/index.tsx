@@ -1,34 +1,34 @@
-import { useContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
+import { useContext } from "react";
 import { TransactionsContext } from "../../TransactionsContext";
 import { Container } from "./styles";
 
-interface Transaction {
-  id: number;
-  title: string;
-  amount: number;
-  type: string;
-  category: string;
-  createdAt: string;
-}
+// // Moving transactions data to the context
+// interface Transaction {
+//   id: number;
+//   title: string;
+//   amount: number;
+//   type: string;
+//   category: string;
+//   createdAt: string;
+// }
 
 export function TransactionTable() {
-  const data = useContext(TransactionsContext);
-  //console.log(data);
+  const transactions = useContext(TransactionsContext);
 
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  // // Moving transactions data to the context
+  // const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  // // Using Fetch instead of Axios
-  //   useEffect(() => {
-  //     fetch("/transactions")
-  //       .then((response) => response.json())
-  //       .then((data) => console.log(data));
-  //   }, []);
+  // // // Using Fetch instead of Axios
+  // //   useEffect(() => {
+  // //     fetch("/transactions")
+  // //       .then((response) => response.json())
+  // //       .then((data) => console.log(data));
+  // //   }, []);
 
-  // Using Axios
-  useEffect(() => {
-    api.get("/transactions").then((response) => setTransactions(response.data.transactions));
-  }, []);
+  // // Using Axios
+  // useEffect(() => {
+  //   api.get("/transactions").then((response) => setTransactions(response.data.transactions));
+  // }, []);
 
   return (
     <Container>
