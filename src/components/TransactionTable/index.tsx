@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { TransactionsContext } from "../../TransactionsContext";
+import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./styles";
 
 // // Moving transactions data to the context
@@ -13,7 +12,7 @@ import { Container } from "./styles";
 // }
 
 export function TransactionTable() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions } = useTransactions();
 
   // // Moving transactions data to the context
   // const [transactions, setTransactions] = useState<Transaction[]>([]);
