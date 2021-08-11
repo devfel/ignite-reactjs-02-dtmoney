@@ -13,7 +13,7 @@ import { Container } from "./styles";
 // }
 
 export function TransactionTable() {
-  const transactions = useContext(TransactionsContext);
+  const { transactions } = useContext(TransactionsContext);
 
   // // Moving transactions data to the context
   // const [transactions, setTransactions] = useState<Transaction[]>([]);
