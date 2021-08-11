@@ -1,12 +1,24 @@
+import { useContext } from "react";
 import IncomeImg from "../../assets/income.svg";
 import OutcomeImg from "../../assets/outcome.svg";
 import TotalImg from "../../assets/total.svg";
+import { TransactionsContext } from "../../TransactionsContext";
 
 import { Container } from "./styles";
 
 export function Summary() {
+  const data = useContext(TransactionsContext);
+  //console.log(data);
+
   return (
     <Container>
+      {/* Old way of doing context consumer instead of useContext */}
+      {/* <TransactionsContext.Consumer>
+        {(data) => {
+          console.log(data);
+          return null;
+        }}
+      </TransactionsContext.Consumer> */}
       <div>
         <header>
           <p>Incomes</p>
