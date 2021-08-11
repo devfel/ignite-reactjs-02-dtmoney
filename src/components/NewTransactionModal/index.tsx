@@ -17,18 +17,17 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
   const { createTransaction } = useContext(TransactionsContext);
   const [title, setTitle] = useState("");
   const [value, setValue] = useState(0);
+  const [type, setType] = useState("deposit");
   const [category, setCategory] = useState("");
 
-  const [type, setType] = useState("deposit");
-
-  function handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault();
 
-    createTransaction({
+    await createTransaction({
       title,
       amount: value,
-      category,
       type,
+      category,
     });
     // // Moved to Transaction Context
     // const data = {
@@ -37,8 +36,14 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
     //   category,
     //   type,
     // };
-
     // api.post("/transactions", data);
+
+    setTitle("");
+    setValue(0);
+    setType("deposit");
+    setCategory("");
+
+    onRequestClose();
   }
 
   return (
